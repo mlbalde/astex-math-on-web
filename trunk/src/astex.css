@@ -1,0 +1,425 @@
+/**
+ *
+ * ASTEX
+ * http://astex-math-on-web.googlecode.com
+ * astex.math.on.web@gmail.com
+ *
+ * version 0.1 (beta) (29 April 2010)
+ * 
+ * Copyright (C) 2009-2010 Michael A. Ziegler
+ *
+ * License:
+ *
+ *   This file is part of ASTEX.
+ *
+ *   ASTEX is free software: you can redistribute it and/or modify
+ *   it under the terms of the GNU Lesser General Public License (LGPL) 
+ *   as published by the Free Software Foundation, either version 3 of 
+ *   the License, or (at your option) any later version.
+ *
+ *   ASTEX is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU Lesser General Public License (LGPL) for more details.
+ *
+ *   You should have received a copy of the GNU Lesser General Public License
+ *   along with ASTEX.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ **/
+
+
+
+body {
+	font-size : 16pt ;
+	font-family: "helvetica";
+}
+
+
+/* ----------------------- Astex class specific elements ------------------- */
+
+
+/* begin{theorem|lemma|proposition|corollary} ... end{theorem|lemma|proposition|corollary} */
+.Astex-Theorem-Div {
+	font-weight : bold ;
+	display : inline ;
+}
+
+/* content between begin{} and end{} above */
+.Astex-Theorem-Content-Div {
+	font-weight : italic ;
+	display : inline ;
+}
+
+/* begin{definition|example|remark|problem|exercise|conjecture|solution} ... end{definition|example|remark|problem|exercise|conjecture|solution} */
+.Astex-Definition-Div {
+	font-weight : bold ;
+	display : inline ;
+}
+
+/* content between begin{} and end{} above */
+.Astex-Definition-Content-Div {
+	font-weight : normal ;
+	display : inline ;
+}
+
+/* begin{proof} ... end{proof} */
+.Astex-Proof-Div {
+	font-weight : italic ;
+	display : inline ;
+}
+
+/* content between begin{} and end{} above */
+.Astex-Proof-Content-Div {
+	font-weight : normal ;
+	display : inline ;
+}
+
+/* "QED" Div at end of proof  */
+.Astex-Proof-QED-Div {
+	font-weight : bold ;
+	display : inline ;
+}
+
+/* newline */
+.Astex-Newline-Br {
+}
+
+/* newpage */
+.Astex-Newpage-Br {
+	page-break-after : always ;
+}
+
+/* par */
+.Astex-Paragraph-P {
+}
+
+/* bigskip */
+.Astex-Big-Skip-P {
+	margin-bottom : 0.5in ;
+}
+
+/* medskip */
+.Astex-Med-Skip-P {
+	margin-bottom : 0.3in ;
+}
+
+/* smallskip */
+.Astex-Small-Skip-P {
+	margin-bottom : 0.15in ;
+}
+
+/* ----------------------- Astex classes attached to specific html elements ------------------- */
+
+/* generic Astex class definition */
+.Astex {
+}
+
+/* begin{center} ... end{center} */
+center.Astex {
+}
+
+/* emph{} */
+/* begin{emph} ... end{emph} */
+em.Astex {
+	font-weight : bold ;
+	font-style : italic ;
+}
+
+/* begin{bold} ... end{bold} */
+b.Astex {
+	font-weight : bold ;
+}
+
+/* begin{italic} ... end{italic} */
+i.Astex {
+	font-style : italic ;
+}
+
+/* begin{underline} ... end{underline} */
+u.Astex {
+}
+
+/* begin{pre} ... end{pre} */
+pre.Astex {
+}
+
+/* begin{monospace} ... end{monospace} */
+tt.Astex {
+}
+
+/* chapter{} */
+h2.Astex {
+}
+
+/* section{} */
+h3.Astex {
+}
+
+/* subsection{} */
+h4.Astex {
+}
+
+/* begin{itemize} */
+ul.Astex {
+	list-style-type : disc ;
+	list-style-position : inside ;
+}
+
+/* begin{enumerate} */
+ol.Astex {
+	list-style-type : decimal ;
+	list-style-position : inside ;
+}
+
+/* item() */
+li.Astex {
+}
+
+/* item[]{} */
+dt.Astex {		/* the [] content */
+}
+dd.Astex {		/* the {} content */
+}
+
+/* begin{description} */
+dl.Astex {
+}
+
+/* ----------------------- Astex classes attached to tables and table elements ------------------- */
+
+/* begin{table} */
+table.Astex {
+	border : 1px solid black ;		/* draws box around table (not including thead and tfoot) */
+	border-collapse : collapse ;
+	caption-side : bottom ;
+}
+
+/* begin{caption} */
+table.Astex caption {
+	color : blue ;
+	font-weight : bold ;
+}
+
+/* begin{row} */
+table.Astex tbody tr {
+	border : 1px solid gray ;
+}
+table.Astex thead tr {
+}
+table.Astex tfoot tr {
+}
+
+/* begin{header} */
+table.Astex thead tr th {
+	border : 1px solid black ;
+	text-align : center ;
+	vertical-align : middle ;
+	padding : 5px 5px 5px 5px ;
+}
+
+/* begin{column} */
+table.Astex tbody tr td {
+	border : 1px solid gray ;
+	text-align : center ;
+	vertical-align : middle ;
+	padding : 5px 5px 5px 5px ;
+}
+
+/* begin{footer} */
+table.Astex tfoot tr td {
+	border : 1px solid black ;
+	font-style : italic ;
+	text-align : center ;
+	vertical-align : middle ;
+	padding : 5px 5px 5px 5px ;
+}
+
+/* begin{tbody} */
+table.Astex tbody {
+}
+
+/* begin{thead} */
+table.Astex thead {
+}
+
+/* begin{tfoot} */
+table.Astex tfoot {
+}
+
+/* begin{colgroup} */
+table.Astex colgroup {
+}
+
+/* begin{col}end{col} */
+table.Astex col {
+}
+
+
+
+/* ---------------- Astex Quiz CSS ------------------- */
+
+
+/* outer container for Astex Quizzes */
+.Astex-Quiz-Div {
+	border : thin solid black ;
+	background-color : white ;	/* best for ie */
+	width : 600px ;
+	height : 300px ;
+	overflow : scroll ;
+	padding : 5px 5px 5px 5px ;
+}
+
+/* The Title Bar at top of quiz */
+.Astex-Quiz-Title-Div {
+	font-size : 24pt ;
+	color : blue ;
+	background-color : #FFAAFF ;
+	border : thin solid black ;
+	padding : 5px 5px 5px 5px ;
+}
+
+/* The "Question:" message box */
+.Astex-Quiz-Question-Div {
+	font-size : 18pt ;
+	font-weight : bold ;
+	/* background-color : #AAFFAA ; */
+	display : inline ;
+	border : thin solid black ;
+	padding : 5px 5px 5px 5px ;
+}
+
+/* The "Correct!" message box */
+.Astex-Quiz-Correct-Div {
+	font-size : 18pt ;
+	font-weight : bold ;
+	color : blue ;
+	padding : 5px 5px 5px 5px ;
+}
+
+/* The "Incorrect!" message box */
+.Astex-Quiz-Incorrect-Div {
+	font-size : 18pt ;
+	font-weight : bold ;
+	color : red ;
+	padding : 5px 5px 5px 5px ;
+}
+
+/* The "User Answer:" message box */
+.Astex-Quiz-User-Answer-Div {
+	font-size : 18pt ;
+	font-weight : bold ;
+	/* background-color : #AAFFAA ; */
+	display : inline ;
+	border : thin solid black ;
+	padding : 5px 5px 5px 5px ;
+}
+
+/* The "Correct Answer:" message box */
+.Astex-Quiz-Correct-Answer-Div {
+	font-size : 18pt ;
+	font-weight : bold ;
+	/* background-color : #AAFFAA ; */
+	display : inline ;
+	border : thin solid black ;
+	padding : 5px 5px 5px 5px ;
+}
+
+/* The "Feedback:" message box */
+.Astex-Quiz-Feedback-Div {
+	font-size : 18pt ;
+	font-weight : bold ;
+	/* background-color : #AAFFAA ; */
+	display : inline ;
+	border : thin solid black ;
+	padding : 5px 5px 5px 5px ;
+}
+
+
+
+/* ----------------- Plugins ----------------*/
+
+.AstexDoc a {
+	text-decoration : none ;
+	color : blue ;
+}
+
+.AstexDoc-Wrapper-Div {
+	background-color : white ;			/* best for ie */
+	width : 100% ;
+	height : 100% ;
+	overflow : auto ;
+}
+
+/*
+.AstexDoc-Wrapper-Div a {
+	text-decoration : none ;
+	color : blue ;
+}
+*/
+
+.AstexDoc-TitleBar-Div {
+	font-size : 18pt ;
+	font-weight : bold ;
+	color : blue ;
+}
+
+.AstexDoc-NavigationBar-Div {
+	display : inline ;
+	width : 230px ;
+	float : left ;
+	padding : 5px 25px 5px 5px ;
+	overflow : auto ;
+}
+
+.AstexDoc-MainContent-Div {
+	display : inline ;
+	float : left ;
+	padding : 5px 5px 5px 5px ;
+	overflow : auto ;
+}
+
+#AstexSiteHeader0 {
+	margin: 0px;
+	padding : 5px 0px 5px 0px ;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	line-height: normal;
+	font-size-adjust: none;
+	font-stretch: normal;
+	width: 100%;
+	font-size : 24pt ;
+	background-color: blue;
+	/*color: rgb(255, 255, 255);*/
+	color: white ;
+	/*font-family: "trebuchet ms",tahoma,arial,helvetica,sans-serif;*/
+	font-family: "helvetica";
+}
+
+/* override syntaxhighlighter toolbar items */
+
+.syntaxhighlighter .toolbar {
+	overflow : visible !important;
+	border : 0 !important;
+	background : none !important;
+}
+
+.syntaxhighlighter .toolbar .item.viewSource {
+	background-image : none !important;
+	overflow : visible !important;
+	text-indent : 0 !important;
+	font-size : 10px !important;
+	padding : 1px 1px 1px 1px !important;
+}
+
+.syntaxhighlighter .toolbar .item.printSource {
+	background-image : none !important;
+	overflow : visible !important;
+	text-indent : 4px !important;
+	font-size : 10px !important;
+	padding : 1px 1px 1px 1px !important;
+}
+
+.syntaxhighlighter .toolbar .item.about {
+	display : none !important;
+}

@@ -1,0 +1,1843 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<head>
+		<title>ASTEX</title>
+
+		<!--
+			Copyright (C) 2009-2010 Michael A. Ziegler
+			http://astex-math-on-web.googlecode.com
+			astex.math.on.web at gmail dot com
+		-->
+		<script type="text/javascript" src="astex-complete.js"></script>
+
+	</head>
+	<body bgcolor="white">
+
+		\begin{questiondb}
+
+			NAME:Add Fractions
+
+			BEGIN QUESTION:
+				TYPE:mc
+				ANSWER:`1/2`
+				QUESTION:Add `1/4+1/4`.
+				FEEDBACK:`1/4+1/4 = (1+1)/4 = 2/4 = 1/2`.
+				DISTRACTOR:`1/4`
+				DISTRACTOR:`1`
+				DISTRACTOR:`3/4`
+
+			BEGIN QUESTION:
+				TYPE:tf
+				ANSWER:true
+				QUESTION:`1/4+1/4=1/2`.
+				FEEDBACK:`1/4+1/4 = (1+1)/4 = 2/4 = 1/2`.
+
+			BEGIN QUESTION:
+				TYPE:tf
+				ANSWER:false
+				QUESTION:`1/4+1/4=1/3`.
+				FEEDBACK:`1/4+1/4 = (1+1)/4 = 2/4 = 1/2 != 1/3`.
+
+		\end{questiondb}
+
+		\begin{questiondb}
+
+			NAME:Multiply Fractions
+
+			BEGIN QUESTION:
+				TYPE:mc
+				ANSWER:`1/4`
+				QUESTION:Multiply `1/2*1/2`.
+				FEEDBACK:`1/2*1/2 = (1*1)/(2*2) = 1/4`.
+				DISTRACTOR:`1`
+				DISTRACTOR:`3/4`
+
+			BEGIN QUESTION:
+				TYPE:tf
+				ANSWER:true
+				QUESTION:`1/2*1/2=1/4`.
+				FEEDBACK:`1/2*1/2 = (1*1)/(2*2) = 1/4`.
+
+		\end{questiondb}
+
+		\begin{doc}
+
+			TITLE:ASTEX
+
+			BEGIN PAGE:
+				TITLE:ASTEX
+				LEVEL:0
+				CONTENT:
+					\begin{bold}What is ASTEX?\end{bold}
+					\newline
+					\newline
+
+					\begin{bold}ASTEX \end{bold} is an ascii/tex-like mathematical typesetting system for the web.
+					It works completely in the user's web browser and uses a very simple human readable markup language.
+					\newline
+					\newline
+
+					\begin{bold}What can I use it for?\end{bold}
+					\newline
+
+					\begin{itemize[list-style-type:square;]}
+						\item \docLink{Display Mathematical Text} (including equations and arrays)
+						\item \docLink{Draw 2D and 3D Graphs}
+						\item \docLink{Highlight Computer Syntax}
+						\item \docLink{Simple LaTeX Formatting}
+						\item \docLink{Create a Quiz}
+						\item \docLink{Create an Online Doc}ument with navigation and search functions and the 
+					       	     ability to toggle between MathML displays (like this website).
+						     This entire website consists of one html page plus a link to one JavaScript file.
+					\end{itemize}
+
+					\newline
+					You can test it out for yourself in the \docLink{Sandbox}.
+
+					\newline
+					\newline
+
+					\begin{bold}How does ASTEX work?\end{bold}
+					\newline
+					\newline
+
+					\begin{bold}ASTEX \end{bold} uses our derivative of Peter Jipsen's 
+					\exLink{http://www1.chapman.edu/~jipsen/asciimath.html|ASCIIMathML} 
+					and Douglas R. Woodall's derivative work 
+					\exLink{http://www.maths.nottingham.ac.uk/personal/drw/lm.html|LaTeXMathML} 
+					to create MathML nodes in an html document. 
+					We then render the MathML using one of several methods. 
+					\begin{bold}ASTEX \end{bold} relies on our own derivative of Walter Zorn's 
+					\exLink{http://www.walterzorn.com/jsgraphics/jsgraphics_e.htm|jsGraphics} 
+					as a back-end canvas on which we can draw mathematical graphs in 2 and 3 dimensions 
+					and also on Alex Gorbatchev's 
+					\exLink{http://alexgorbatchev.com/wiki/SyntaxHighlighter|Syntax Highlighter} 
+					to highlight computer programming syntax. 
+
+					\newline
+					\newline
+
+					\begin{bold}What do I need to use ASTEX?\end{bold}
+					\newline
+					\newline
+					There are 2 ways to use ASTEX.
+					\begin{itemize[list-style-type:square;]}
+						\item Download the app. Just one JavaScript file. 
+						     You'll also need a text editor (not a Word Processor) and a modern web browser. 
+						     You can run the software locally on your home computer with or without a web 
+						     server installed.
+						\item You have an account on a wiki, blog, course management system, etc. that has
+						     ASTEX installed on their servers.
+					\end{itemize}
+					\newline
+					\newline
+					\begin{bold}Do I have to write server-side CGI scripts to use ASTEX?\end{bold}
+					\newline
+					\newline
+					\begin{bold}ASTEX \end{bold} does not require server-side processing. 
+					All markup is processed by the user's web browser.
+					\newline
+
+					\newline
+					\begin{bold}Do my website visitors need to download fonts or plugins to use ASTEX?\end{bold}
+					\newline
+					\newline
+					Your website visitors will not need to download and install any special fonts, plugins, or other 
+					software. All your website visitors need is a modern web browser. 
+					\newline
+
+					\newline
+					\begin{bold}How does the math get displayed?\end{bold}
+					\begin{itemize[list-style-type:square;]}
+						\item Math is displayed by using our custom code along with our derivative of 
+						     \exLink{http://www.walterzorn.com/jsgraphics/jsgraphics_e.htm|jsGraphics} to 
+						     actually draw the mathematics in the web browser.
+						\item \exLink{http://www.mozilla.com/firefox|Mozilla Firefox} users can use the native MathML 
+						     display if they download and install the \exLink{http://ist.mit.edu/services/web/mathml|TEX} 
+						     or \exLink{http://www.stixfonts.org|STIX} fonts. 
+					 	\item \exLink{http://www.microsoft.com/windows/internet-explorer/default.aspx|Internet Explorer} 
+						     users who have 
+						     \exLink{http://www.dessci.com/en/products/mathplayer/download.htm|Design Science's MathPlayer Plugin} 
+						     installed can use it to display math markup. 
+					\end{itemize}
+
+					\newline
+					\newline
+					\begin{bold}What web browsers does it work with?\end{bold}
+					\newline
+					\newline
+					\begin{bold}ASTEX \end{bold} has been tested on the latest versions of following web browers: 
+					\newline
+					\begin{itemize[list-style-type:square;]}
+						\item \exLink{http://www.mozilla.com/firefox|Mozilla Firefox} 
+						\item \exLink{http://www.microsoft.com/windows/internet-explorer/default.aspx|Internet Explorer} 
+						\item \exLink{http://www.google.com/chrome|Google Chrome}
+						\item \exLink{http://www.apple.com/safari|Apple Safari}
+						\item \exLink{http://www.opera.com|Opera} (latest edition)
+					\end{itemize}
+					\newline
+
+					\newline
+					\begin{bold}What are the alternatives to using ASTEX?\end{bold}
+					\newline
+					\newline
+					Some of the other ways of putting mathematics on the web are:
+					\begin{itemize[list-style-type:square;]}
+						\item \exLink{http://www1.chapman.edu/~jipsen/asciimath.html|ASCIIMathML}, LaTeXMathML, and ASCIISVG
+						\item \exLink{http://www.w3.org/Math/Overview.html|MathML}
+						\item Image replacement of mathematical markup
+						\item PDF
+						\item \exLink{http://www.mathjax.org|MathJAX}
+					\end{itemize}
+					\newline
+
+					\exLink{http://www1.chapman.edu/~jipsen/asciimath.html|ASCIIMathML}, et al. 
+					only works in Firefox (if visitors download and install fonts) and Internet Explorer, 
+					only if the user downloads and installs 2 plugins (one for MathML, one for SVG). Also, the 
+					SVG plugin has been discontinued by Adobe.
+					\newline
+					\newline
+					\exLink{http://www.w3.org/Math/Overview.html|MathML} is not supported by most web browsers. 
+					If a web browser does support it, visitors to your website have to download and install fonts and/or plugins.
+					\newline
+					\newline
+					Image replacement usually requires server-side processing. Also, this requires quite a bit of bandwidth.
+					\newline
+					\newline
+					Using TEX or Word Processing programs and converting to PDF require a lot of other software, processing, 
+					bandwidth and time. Also, most PDF documents are designed to be printed to a standard 8.5" x 11" piece of 
+					paper, NOT to be displayed online.
+					\newline
+					\newline
+					\exLink{http://www.mathjax.org|MathJAX} is a promising AJAX technology. 
+					The only problem is you have to install about 13MB of fonts 
+					to your webserver (that's before you unzip it). It takes TEX and MathML as input, but there is no 
+					support for 2D or 3D graphs, nor is there support for Syntax Highlighting. 
+					\newline
+
+			BEGIN PAGE:
+				TITLE:Display Mathematical Text
+				LEVEL:1
+				CONTENT:
+					\newline `y=1/x qquad` $sum_{n=1}^{oo} 1/n$ ` qquad [ [1,0,0],[0,1,0],[0,0,1] ]`
+					\newline
+					`{:
+						[ int_0^pi sin x dx , = , (-cos x)    , |_{x=0}^{x=pi} ,                    ] ,
+						[                   , = , -cos(pi)    , hide{1} -      , hide{1} [-cos(0)]  ] ,
+						[                   , = , -(-1)       , hide{1} -      , hide{1} [-1]       ] ,
+						[                   , = , hide{111} 1 , hide{1} +      , hide{1} 1          ] ,
+						[                   , = ,             , hide{1} 2      ,                    ]
+					:}`
+					\newline
+					The mathematical markup is rather simple. For instance, the equation `y=1/x` was 
+					created by inserting the following text into the html document:
+					\newline
+					\begin{code}
+						BRUSH:astex-graph
+						CODE:`y = 1 / x`
+					\end{code} 
+					and the summation $sum_{n=1}^{oo} 1/n$ was 
+					created by inserting the following text into the html document:
+					\newline
+					\begin{code}
+						BRUSH:astex-graph
+						CODE:$sum_{n=1}^{oo} 1/n$
+					\end{code} 
+					\newline
+
+			BEGIN PAGE:
+				TITLE:Draw 2D and 3D Graphs
+				LEVEL:1
+				CONTENT:
+					\newline
+					2D Graphs can be drawn using rectangular, polar, and parametric functions, 
+					with the ability to shade/fill an area between functions.
+					\newline
+					\newline
+					3D Graphs can be drawn using rectangular, cylindrical, spherical coordinates systems 
+					as well as drawing vector-valued functions, with the ability to add rotation controls. 
+					3D Graphs can use either a Right-Handed or Left-Handed Coordinate System, as well as 
+					optional graph rotation controls.
+					\newline
+					\newline
+					\begin{graph}
+						width = 250 ; height = 250 ; ymin = -2 ; ymax = 2 ; bgcolor = yellow ;
+						stroke = 2 ;
+						color = orange ;
+						fillplot ( plot ( `y=sin(x)` , 0 , pi ) plot ( `y=0` , 0 , pi ) ) ;
+						color = gray ;
+						axes = yes ;
+						color = red ;
+						plot ( `y=sin(x)` , -2pi , 2pi ) ;
+						color = black ;
+						mtext( `int_0^pi sin x dx` , [-3,1.2] , 0.5 , 0.1 ) ;
+					\end{graph}
+					\begin{graph}
+						width=250; height=250; dim=3; bgcolor=yellow;
+						xmin=-1; xmax=1; ymin=-1; ymax=1; zmin=-1; zmax=1;
+						color=black;
+						axes=yes;
+						axeslabels=x,y,z;
+						surfacecolor ( red , blue ) ;
+						partition ( 20 , 20 , 4 ) ;
+						plot3D ( cyl , `z=r^2` ) ;
+					\end{graph}
+					\newline
+					\newline
+					The markup language for graphs is very simple. For example, the 3D paraboloid above
+					was created by inserting the following text into the html document:
+					\newline
+					\newline
+					\begin{code}
+						BRUSH:astex-graph
+						CODE:	
+							\begin{graph} \cn
+								\ct width=250; height=250; dim=3; bgcolor=yellow; \cn
+								\ct xmin=-1; xmax=1; ymin=-1; ymax=1; zmin=-1; zmax=1; \cn
+								\ct color=black; \cn
+								\ct axes=yes; \cn
+								\ct axeslabels=x,y,z; \cn
+								\ct surfacecolor ( red , blue ) ; \cn
+								\ct partition ( 20 , 20 , 4 ) ; \cn
+								\ct plot3D ( cyl , `z=r^2` ) ; \cn
+							\end{graph}
+					\end{code}
+
+
+			BEGIN PAGE:
+				TITLE:Highlight Computer Syntax
+				LEVEL:1
+				CONTENT:
+					\newline
+					Display highlighted syntax for the most common computer programming languages.
+					\newline
+					\begin{code}
+						BRUSH:js
+						CODE:
+							/* \cn
+							 * JavaScript Example \cn
+							 */ \cn
+							var f = function ( ) { \cn
+							\ct alert ( "Hello" ) ; \cn
+							}
+					\end{code}
+
+					\newline
+					The code for the above is as follows. Declare a BRUSH. See 
+					\exLink{http://alexgorbatchev.com/wiki/SyntaxHighlighter|Syntax Highlighter} 
+					for details about the available brushes. Then write the CODE.
+
+					\newline
+					\begin{ccode}
+						BRUSH:js
+						CODE:
+							/* \cn
+							 * JavaScript Example \cn
+							 */ \cn
+							var f = function ( ) { \cn
+							\ct alert ( "Hello" ) ; \cn
+							}
+					\end{ccode}
+					\newline
+					\newline
+					Note that you need to use special tokens to force new lines, tabs, and spaces 
+					since html doesn't pay attention to them. The special tokens are: 
+					\newline
+					\begin{itemize}
+						\item \cn forces a new line (linebreak)
+						\item \ct forces a tab 
+						\item \csp forces a space 
+						\end{itemize}
+					\newline
+					Note that we don't allow \n or \t since many programming languages will allow 
+					these escape sequences inside of strings, and we didn't want to alter anyone's code 
+					if they contained these escape sequences. Think of \cn as a "code new line", 
+					\ct as a "code tab", and \csp as a "code space"
+
+			BEGIN PAGE:
+				TITLE:Create a Quiz
+				LEVEL:1
+				CONTENT:
+					\begin{quiz}
+						name = Fraction Test ;
+						width = 800 ;
+						height = 400 ;
+						use 2 questions from Add Fractions db ;
+						use 1 question from Multiply Fractions db ;
+					\end{quiz}
+
+					\newline
+					\newline
+
+					To create the above quiz, I did two things. First, I created 2 question databases. 
+					Each database has a NAME and one or more QUESTIONs. The questions can be Multiple Choice (mc) 
+					or True/False (tf). The syntax is fairly self-explanatory, but be aware that the order is 
+					important. Give the database a NAME first. For each question, the order should always be 
+					TYPE, ANSWER, QUESTION, FEEDBACK (and DISTRACTORs for mc questions).
+					\newline
+					\newline
+					I suggest adding question databases at the beginning of your html document. This way, 
+					they are available everywhere in your document. Here is the code I used. 
+
+					\newline
+					\newline
+
+					\begin{code}
+						BRUSH:astex-doc
+						CODE:
+							\begin{questiondb} \cn
+							\cn
+								\ct NAME:Add Fractions \cn
+							\cn
+								\ct BEGIN QUESTION: \cn
+									\ct\ct TYPE:mc \cn
+									\ct\ct ANSWER:`1/2` \cn
+									\ct\ct QUESTION:Add `1/4+1/4`. \cn
+									\ct\ct FEEDBACK:`1/4+1/4 = (1+1)/4 = 2/4 = 1/2`. \cn
+									\ct\ct DISTRACTOR:`1/4` \cn
+									\ct\ct DISTRACTOR:`1` \cn
+									\ct\ct DISTRACTOR:`3/4` \cn
+							\cn
+								\ct BEGIN QUESTION: \cn
+									\ct\ct TYPE:tf \cn
+									\ct\ct ANSWER:true \cn
+									\ct\ct QUESTION:`1/4+1/4=1/2`. \cn
+									\ct\ct FEEDBACK:`1/4+1/4 = (1+1)/4 = 2/4 = 1/2`. \cn
+							\cn
+								\ct BEGIN QUESTION: \cn
+									\ct\ct TYPE:tf \cn
+									\ct\ct ANSWER:false \cn
+									\ct\ct QUESTION:`1/4+1/4=1/3`. \cn
+									\ct\ct FEEDBACK:`1/4+1/4 = (1+1)/4 = 2/4 = 1/2 != 1/3`. \cn
+							\cn
+							\end{questiondb} \cn
+							\cn
+
+							\begin{questiondb} \cn
+							\cn
+								\ct NAME:Multiply Fractions \cn
+							\cn
+								\ct BEGIN QUESTION: \cn
+									\ct\ct TYPE:mc \cn
+									\ct\ct ANSWER:`1/4` \cn
+									\ct\ct QUESTION:Multiply `1/2*1/2`. \cn
+									\ct\ct FEEDBACK:`1/2*1/2 = (1*1)/(2*2) = 1/4`. \cn
+									\ct\ct DISTRACTOR:`1` \cn
+									\ct\ct DISTRACTOR:`3/4` \cn
+							\cn
+								\ct BEGIN QUESTION: \cn
+									\ct\ct TYPE:tf \cn
+									\ct\ct ANSWER:true \cn
+									\ct\ct QUESTION:`1/2*1/2=1/4`. \cn
+									\ct\ct FEEDBACK:`1/2*1/2 = (1*1)/(2*2) = 1/4`. \cn
+							\cn
+							\end{questiondb}
+					\end{code}
+
+					\newline
+					\newline
+
+					Then, wherever you want your quiz to go, add it. The semi-colons are important. Also, note 
+					how we use the NAMEs of the Question DBs to add questions to the quiz. This allows you to 
+					use the databases in more than one quiz.
+
+					\newline
+					\newline
+					\begin{code}
+						BRUSH:astex-doc
+						CODE:
+							\begin{quiz} \cn
+								\ct name = Fraction Test ; \cn
+								\ct width = 800 ; \cn
+								\ct height = 400 ; \cn
+								\ct use 2 questions from Add Fractions db ; \cn
+								\ct use 1 question from Multiply Fractions db ; \cn
+							\end{quiz}
+					\end{code}
+
+			BEGIN PAGE:
+				TITLE:Create an Online Doc
+				LEVEL:1
+				CONTENT:
+					This page/site is an ASTEX doc. The format is extremely simple. 
+
+					\begin{code}
+						BRUSH:astex-doc
+						CODE:
+							\begin{doc} \cn
+								\ct TITLE:doc-title-goes-here \cn
+							\cn
+								\ct BEGIN PAGE: \cn
+									\ct\ct TITLE:page-title-goes-here \cn
+									\ct\ct LEVEL:level-goes-here \cn
+									\ct\ct CONTENT:(multi-line) content-goes-here \cn
+							\cn
+								\ct BEGIN PAGE: \cn
+									\ct\ct TITLE:page-title-goes-here \cn
+									\ct\ct LEVEL:level-goes-here \cn
+									\ct\ct CONTENT:(multi-line) content-goes-here \cn
+							\cn
+							\end{doc}
+
+					\end{code}
+
+					Note: If you want to add a \docLink{Create a Quiz}, add the Question DataBases before the begin{doc}.
+					\newline
+					\newline
+					There can be as many pages as you want. The order TITLE, LEVEL, CONTENT is important! 
+					LEVEL should be a digit like 0, 1, 2, 3, ... It controls the page heirarchy and indentation 
+					on the Document Sitemap; e.g., if a page has LEVEL 1, it is indented under the previous LEVEL 0 page. 
+					CONTENT can be multiline and can contain mathematical markup, graphs, syntax highlighting, etc. 
+					\newline
+					\newline
+					If you would like to include a link to a certain page in the doc, simply insert the following into the 
+					page CONTENT:
+
+					\begin{code}
+						BRUSH:astex-doc
+						CODE:\docLink{page-title-goes-here}
+					\end{code}
+
+					It is your responsibility to make sure each page has a different TITLE!
+
+			BEGIN PAGE:
+				TITLE:Installation
+				LEVEL:0
+				CONTENT:
+					First, download the latest version of the app from \exLink{http://astex-math-on-web.googlecode.com|Google Code}. 
+					The \docLink{License} is an open source license.
+					
+					\newline
+					\newline
+					If you are using this locally on your own computer without a web server, simply copy 
+					the astex-complete.js file to an appropriate folder on your machine and include the following 
+					at the top of each html page, replacing "path-to-file" with 
+					the appropriate path where you stored your copy of the astex-complete.js file:
+					\newline
+					\begin{code}
+						BRUSH:html
+						CODE:<script type="text/javascript" src="path-to-file/astex-complete.js"></script>
+					\end{code}
+					\newline
+					If you are using this with a web server, unzip the download and upload the 
+					astex-complete.js (and possibly the astex-complete.js.gz file 
+					if you have your web server set up to use gzipped content) to an appropriate directory 
+					on your web server. (You could also upload the original download to your server before unzipping it.)
+					\newline
+					\newline
+					Then include the following at the top of each html page, replacing "path-to-file" with 
+					the appropriate path where you stored your copy of the astex-complete.js file:
+					\newline
+					\begin{code}
+						BRUSH:html
+						CODE:<script type="text/javascript" src="path-to-file/astex-complete.js"></script>
+					\end{code}
+					\newline
+					We also include a version withouth Syntax Highlighting. It's called astex-math-graphs.packed.js 
+					(and we also have a gzipped version: astex-math-graphs.packed.js.gz). Use these files if you 
+					don't require Syntax Highlighting capabilities.
+
+			BEGIN PAGE:
+				TITLE:License
+				LEVEL:1
+				CONTENT:
+					Copyright (C) 2009-2010 Michael A. Ziegler (astex.math.on.web at gmail dot com)
+					\newline
+					\newline
+					ASTEX is available under the GNU Lesser General Public License (LGPL) v3. See \exLink{http://www.gnu.org/licenses|GNU.org} for details. 
+					\newline
+					\newline
+					If you use ASTEX on your pages please include our logo by placing the following on each page that uses ASTEX:
+				       	\newline	
+					\begin{code}
+						BRUSH:astex-doc
+						CODE: \logo{}
+					\end{code}
+					\newline
+					If you are creating an Astex Doc, there's no need to do this. It's automatically included.
+			BEGIN PAGE:
+				TITLE:Sandbox
+				LEVEL:0
+				CONTENT:
+					You can put a sandbox on your page by simply inserting the following into your document:
+					\begin{code}
+						BRUSH:astex-doc
+						CODE:\sandbox{}
+					\end{code}
+					\newline
+					\sandbox{}	
+
+			BEGIN PAGE:
+				TITLE:Syntax Documentation
+				LEVEL:0
+				CONTENT:
+					The following pages detail the syntax for ASTEX. \newline
+					\newline
+					\docLink{Using the Query String to Specify Start-Up Options} \newline
+					\docLink{Create External Links} \newline
+					\docLink{Mathematical Markup} \newline
+					\docLink{Graphs} \newline
+					\docLink{Simple LaTeX Formatting} \newline
+
+			BEGIN PAGE:
+				TITLE:Using the Query String to Specify Start-Up Options
+				LEVEL:1
+				CONTENT:
+					Inevitably, some user will want or will need to specify some start-up options without having  
+					access to or the ability to modify the back-end code. 
+					\newline
+					\newline
+					Currently, Astex allows you to set 2 options using an html query string:
+					\begin{itemize}
+						\item the color used to display mathematical text (default is black)
+						\item the renderer used to display the MathML (default is Astex's Canvas Renderer)
+					\end{itemize}
+					\newline
+					\newline
+					\begin{center}
+					\begin{table}
+						\header{ccc}{to set option & use query option & possible values}
+						\begin{tabular}{ccc}
+							math color    & mathColor \newline AstexMathColor & blue,red,yellow,etc. \\
+							math renderer & mathMLRenderer \newline AstexMathMLRenderer & native,mathplayer,canvas
+						\end{tabular}
+					\end{table}
+					\end{center}
+					\newline
+
+					The "native" MathML Renderer is for \exLink{http://www.mozilla.com/firefox|Mozilla Firefox} 
+					users who have the \exLink{http://ist.mit.edu/services/web/mathml|TEX}  
+					or \exLink{http://www.stixfonts.org|STIX} fonts installed.
+					\newline
+					The "mathplayer" MathML Renderer is for 
+					\exLink{http://www.microsoft.com/windows/internet-explorer/default.aspx|Internet Explorer} 
+					users who have 
+					\exLink{http://www.dessci.com/en/products/mathplayer/download.htm|Design Science's MathPlayer Plugin} 
+					installed.
+					\newline
+					The "canvas" MathML Renderer is Astex's default renderer.
+					\newline
+					\newline
+					Here's how you set these using the html query string. Note that this can be done by anyone 
+					creating a link to a particular web page from another one, or your web site visitor can 
+					manually enter this into the url field of his/her web browser and reload the page.
+					\newline
+					\newline
+					If you have an html page loaded in a web browser, the url might look something like:
+					\begin{code}
+						BRUSH:html
+						CODE: http://www.mywebserver.com/mypage.html
+					\end{code}
+					If you wanted to force the mathematics to have the color red, use either one of the following links:
+					\begin{code}
+						BRUSH:html
+						CODE:
+							http://www.mywebserver.com/mypage.html?mathColor=red \cn
+							http://www.mywebserver.com/mypage.html?AstexMathColor=red 
+					\end{code}
+					\newline
+					Please note the capitalization in "mathColor" and "AstexMathColor".
+					\newline
+					\newline
+					If you wanted to force the MathML to be rendered using the web browser's Native MathML display with 
+					TEX/STIX fonts, use either one of the following links:
+					\begin{code}
+						BRUSH:html
+						CODE:
+							http://www.mywebserver.com/mypage.html?mathMLRenderer=native \cn
+							http://www.mywebserver.com/mypage.html?AstexMathMLRenderer=native 
+					\end{code}
+					\newline
+					Please note the capitalization in "mathMLRenderer" and "AstexMathMLRenderer". 
+					\newline
+					\newline
+					Also, be aware that since only \exLink{http://www.mozilla.com/firefox|Mozilla Firefox}  
+					has Native MathML display, Astex will check to see 
+					if you have the appropriate fonts installed. If so, the MathML will be displayed using Firefox's 
+					native display, otherwise, Astex Canvas will be used. All other web browsers will use Astex's Canvas 
+					renderer.
+					\newline	
+					\newline	
+					If you wanted to force the mathematics to be displayed in red and for the MathML to be rendered 
+					using the web browser's Native MathML display with TEX/STIX fonts, use either one of the following links:
+					\begin{code}
+						BRUSH:html
+						CODE:
+							http://www.mywebserver.com/mypage.html?mathColor=red,mathMLRenderer=native \cn
+							http://www.mywebserver.com/mypage.html?AstexMathColor=red,AstexMathMLRenderer=native 
+					\end{code}
+					\newline
+
+			BEGIN PAGE:
+				TITLE:Create External Links
+				LEVEL:1
+				CONTENT:
+					If you would like to include a link to another web site, simply insert the following code: 
+
+					\begin{code}
+						BRUSH:astex-doc
+						CODE:\exLink{url|description}
+					\end{code}
+
+					If the |description is omitted, then the url is displayed. 
+					\newline
+					\newline
+					Here are some examples:
+					\newline
+
+					\begin{code}
+						BRUSH:astex-doc
+						CODE:\exLink{http:www.google.com|Google}
+					\end{code}
+
+					\newline
+
+					\begin{code}
+						BRUSH:astex-doc
+						CODE:\exLink{http:www.google.com}
+					\end{code}
+
+			BEGIN PAGE:
+				TITLE:Mathematical Markup
+				LEVEL:1
+				CONTENT:
+					The mathematical markup is similar to \exLink{http://www1.chapman.edu/~jipsen/asciimath.html|ASCIIMathML}. 
+					You can use \` \` and \$ \$ to use ASCIIMathML and LaTeXMathML markup, respectively. 
+					\newline
+					\newline
+					There are a few differences. Unlike ASCIIMathML and LaTeXMathML, the same tokens can 
+					be used with \` \` and \$ \$. 
+					\newline
+					\newline
+					We've introduced a \color{ }{ } command, so you can change the color of text within a 
+					mathematical expression. We've introduced a \hide{} command to hide some markup. 
+					\newline
+					\newline
+					We've introduced a \longdiv{ } command. If you couple this with the asciimath arrays, you  
+					can display \docLink{Long Division}.
+
+			BEGIN PAGE:
+				TITLE:Tokens and Symbols
+				LEVEL:2
+				CONTENT:
+					ASTEX currently has tokens/symbols for:
+					\begin{itemize[list-style-type:square;]}
+						\item English letters, digits and most punctuation
+						\item Greek Letters
+						\item Grouping brackets
+						\item Binary Operations
+						\item Binary Relations
+						\item Logic Symbols
+						\item Standard Mathematical Functions
+						\item Arrows
+						\item Mathematical tokens for fractions, radicals, long division, etc.
+						\item Miscellaneous font and whitespace commands
+					\end{itemize}
+					\newline
+					These tokens are meant to be used for mathematical markup inside of \` ... \` or \$ ... \$.
+					\newline
+					\newline
+			BEGIN PAGE:
+				TITLE:Whitespace
+				LEVEL:3
+				CONTENT:\tokens{whitespace}
+
+			BEGIN PAGE:
+				TITLE:Digits
+				LEVEL:3
+				CONTENT:\tokens{digits}
+
+			BEGIN PAGE:
+				TITLE:English Alphabet
+				LEVEL:3
+				CONTENT:\tokens{english}
+
+			BEGIN PAGE:
+				TITLE:Greek Letters
+				LEVEL:3
+				CONTENT:\tokens{greek}
+
+			BEGIN PAGE:
+				TITLE:QWERTY Keyboard Characters
+				LEVEL:3
+				CONTENT:\tokens{qwerty}
+
+			BEGIN PAGE:
+				TITLE:Grouping Brackets
+				LEVEL:3
+				CONTENT:
+					Note that I have inserted some spaces in the output along with an invisible left/right bracket, 
+					solely for purposes of visibility.
+					\newline
+					\newline
+					Note that some of the grouping brackets are invisible. The {: and :} are invisible inside of both 
+					\` \` and \$ \$ and { } are invisible inside of \$ \$.
+					\newline
+					\newline
+					\tokens{grouping brackets}
+
+			BEGIN PAGE:
+				TITLE:Binary Operation Tokens
+				LEVEL:3
+				CONTENT:
+					\tokens{binary operators}
+
+			BEGIN PAGE:
+				TITLE:Binary Relation Tokens 
+				LEVEL:3
+				CONTENT:
+					\tokens{binary relations}
+
+			BEGIN PAGE:
+				TITLE:Logical Operator Tokens 
+				LEVEL:3
+				CONTENT:
+					\tokens{logical operators}
+
+			BEGIN PAGE:
+				TITLE:Miscellaneous Tokens 
+				LEVEL:3
+				CONTENT:
+					\tokens{misc}
+
+			BEGIN PAGE:
+				TITLE:Standard Function Tokens 
+				LEVEL:3
+				CONTENT:
+					\tokens{std functions}
+
+			BEGIN PAGE:
+				TITLE:Arrow Tokens 
+				LEVEL:3
+				CONTENT:
+					\tokens{arrows}
+
+			BEGIN PAGE:
+				TITLE:Accent Tokens 
+				LEVEL:3
+				CONTENT:
+					\tokens{accent}
+
+			BEGIN PAGE:
+				TITLE:TypeStyle Tokens 
+				LEVEL:3
+				CONTENT:
+					Notes:
+					\begin{itemize}
+						\item In the native MathML display, most letters will already appear italicized.
+						\item In the native MathML display, bold-face doesn't seem to work.
+					\end{itemize}
+
+					\tokens{typestyle}
+
+			BEGIN PAGE:
+				TITLE:Font Change Tokens 
+				LEVEL:3
+				CONTENT:
+					Notes:
+					\begin{itemize}
+						\item Note that the TEX and STIX fonts may not contain fonts for all available letters.
+						\item The True Type commands can be useful when aligning data, such as in long division. 
+					\end{itemize}
+
+					\tokens{fontchange}
+
+			BEGIN PAGE:
+				TITLE:Miscellaneous Command Tokens 
+				LEVEL:3
+				CONTENT:
+					\tokens{commands}
+
+
+			BEGIN PAGE:
+				TITLE:Exponents and Subscripts
+				LEVEL:4
+				CONTENT:
+					To create subscripts use _. To create superscripts use ^.
+					\newline
+					\begin{table}
+						\header{cccc}{ input & output & input & output }
+						\begin{tabular}{cccc}
+							\`y=x^2\`                & `y=x^2`                & \$y=x^2\$                & $y=x^2$ \\ 
+							\`y=x^{2^2}\`            & `y=x^{2^2}`            & \$y=x^{2^2}\$            & $y=x^{2^2}$ \\ 
+							\`x^2+y_1+z_12^34\`      & `x^2+y_1+z_12^34`      & \$x^2+y_1+z_12^34\$      & $x^2+y_1+z_12^34$ \\
+							\`x^2+1+y_1+z_12^34\`    & `x^2+1+y_1+z_12^34`    & \$x^2+1+y_1+z_12^34\$    & $x^2+1+y_1+z_12^34$ \\ 
+							\`x^{2+1}+y_1+z_12^34\`  & `x^{2+1}+y_1+z_12^34`  & \$x^{2+1}+y_1+z_12^34\$  & $x^{2+1}+y_1+z_12^34$ \\ 
+							\`x^2.1+y_1+z_12^-34.5\` & `x^2.1+y_1+z_12^-34.5` & \$x^2.1+y_1+z_12^-34.5\$ & $x^2.1+y_1+z_12^-34.5$
+						\end{tabular}
+					\end{table}
+
+					\newline
+					To have subscripts or superscripts with multiple text, include the exponent or subscript inside of { }.
+					\newline
+					\newline
+					For example, the code \`y^{x+1}\` creates `y^{x+1}` and the code \`y_{x=0}\` creates `y_{x=0}`.
+			BEGIN PAGE:
+				TITLE:Fractions
+				LEVEL:4
+				CONTENT:
+					The following table show that you can use /, frac{}{}, or \frac{}{} to create 
+					fractions in between \` ... \` and \$ ... \$.
+					\newline
+					\begin{table}
+						\header{cccc}{ input & output }
+						\begin{tabular}{cccc}
+							\`(x+1)/2\`       & `(x+1)/2` \\ 
+							\`frac{x+1}{2}\`  & `frac{x+1}{2}` \\ 
+							\`\frac{x+1}{2}\` & `\frac{x+1}{2}` \\ 
+							\$(x+1)/2\$       & $(x+1)/2$ \\ 
+							\$frac{x+1}{2}\$  & $frac{x+1}{2}$ \\ 
+							\$\frac{x+1}{2}\$ & $\frac{x+1}{2}$
+						\end{tabular}
+					\end{table}
+
+					\newline
+					\newline
+
+					Here are some more examples:
+					\newline
+					\newline
+					\begin{table}
+						\header{cccc}{ input & output }
+						\begin{tabular}{cccc}
+							\$\frac{2}{x+1} * \frac{x+1}{2}\$ & $\frac{2}{x+1} * \frac{x+1}{2}$ \\
+							\`x + (x+1)/2 + y\`               & `x + (x+1)/2 + y` \\
+							\$frac{x^3+1}{2}\$                & $frac{x^3+1}{2}$ \\
+							\`(2+1/x)/(x+1) + (x+1)/2\`       & `(2+1/x)/(x+1) + (x+1)/2` \\
+							\`((x+1)/2)\`                     & `((x+1)/2)` \\
+							\`((x+1)/2) + ((x+1)/2)\`         & `((x+1)/2) + ((x+1)/2)` \\
+							\`((2+1/x)/(x+1)) xx ((x+1)/2)\`  & `((2+1/x)/(x+1)) xx ((x+1)/2)` \\
+							\`((2+1/x)/(x+1)) ((x+1)/2)\`     & `((2+1/x)/(x+1)) ((x+1)/2)`
+						\end{tabular}
+					\end{table}
+
+			BEGIN PAGE:
+				TITLE:Roots and Radicals
+				LEVEL:4
+				CONTENT:
+					The necessary commands are sqrt{}, \sqrt{}, root{}{}, and \root{}{}. 
+					They work inside \` \` and \$ \$.
+					\newline
+					Note that in Mozilla Firefox, the radical sign will not stretch around fractions as seen below 
+					if you are using the TEX fonts. It should work with the STIX fonts. See 
+					\exLink{http://www.mozilla.org/projects/mathml/fonts/} for details.
+					\newline
+					\begin{table}
+						\header{cccc}{ input & output & Notes }
+						\begin{tabular}{cccc}
+							\`sqrt{x}\`      & `sqrt{x}`      & &  \\
+							\`\sqrt{x}\`     & `\sqrt{x}`     & & \\
+							\$sqrt{x}\$      & $sqrt{x}$      & & \\
+							\$\sqrt{x}\$     & $\sqrt{x}$     & & \\
+							\`root{3}{x}\`   & `root{3}{x}`   & & \\
+							\`\root{3}{x}\`  & `\root{3}{x}`  & & \\
+							\$root{3}{x}\$   & $root{3}{x}$   & & \\ 
+							\$\root{3}{x}\$  & $\root{3}{x}$  & & \\ 
+							\$\sqrt{x^3+1}\$ & $\sqrt{x^3+1}$ & & \\ 
+
+							\`\sqrt{1/(x+1)}\` & `\sqrt{1/(x+1)}` & 
+							This renders incorrectly in Mozilla Firefox native MathML display with TeX Fonts. See the note above. \newline In this example, the radical symbol should stretch to the bottom of the fraction. \\ 
+
+							\$\sqrt{1/(x+1)}\$ & $\sqrt{1/(x+1)}$ & 
+							This renders incorrectly in Mozilla Firefox native MathML display with TeX Fonts. See the note above. \newline In this example, the radical symbol should stretch to the bottom of the fraction. \\ 
+
+							\$\sqrt{frac{1}{x+1}}\$ & $\sqrt{frac{1}{x+1}}$ & 
+							begin{column} This renders incorrectly in Mozilla Firefox native MathML display with TeX Fonts. See the note above. \newline In this example, the radical symbol should stretch to the bottom of the fraction. \\ 
+
+							\$\root{2}{1/(x+1)}\$ & $\root{2}{1/(x+1)}$ & 
+							This renders incorrectly in Mozilla Firefox native MathML display with TeX Fonts. See the note above. \newline In this example, the radical symbol should stretch to the bottom of the fraction.
+						\end{tabular}
+					\end{table}
+
+			BEGIN PAGE:
+				TITLE:Summations, Products and Coproducts
+				LEVEL:4
+				CONTENT:
+
+					To create summations use sum or \sum. \newline
+					To create products use prod or \prod. \newline
+					To create coproducts use coprod or \coprod. \newline
+					\newline
+					We use _ and ^ to create underscripts and overscript respectively. 
+					To have underscripts or overscripts with multiple text, include it inside of { }.
+					\newline
+					\begin{table}
+						\header{cccc}{ input & output }
+						\begin{tabular}{cccc}
+							\`\sum_{n=1}\`                    & `\sum_{n=1}` \\
+							\$\sum_{n=1}\$                    & $\sum_{n=1}$ \\
+							\`\sum^{oo}\`                     & `\sum^{oo}` \\
+							\$\sum^{oo}\$                     & $\sum^{oo}$ \\
+							\`\sum_{n=1}\`                    & `\sum_{n=1}` \\
+							\$\sum_{n=1}\$                    & $\sum_{n=1}$ \\
+							\`\sum_{n=1}^{oo}\`               & `\sum_{n=1}^{oo}` \\
+							\$\sum_{n=1}^{oo}\$               & $\sum_{n=1}^{oo}$ \\
+							\`\sum_{n=1}^{oo} 1/(n^2)\`       & `\sum_{n=1}^{oo} 1/(n^2)` \\
+							\$\sum_{n=1}^{oo} \frac{1}{n^2}\$ & $\sum_{n=1}^{oo} \frac{1}{n^2}$ \\
+							\`\sum_{n=1}^{N} a_n\`            & `\sum_{n=1}^{N} a_n` \\
+							\$\sum_{n=1}^{N} a_n\$            & $\sum_{n=1}^{N} a_n$
+						\end{tabular}
+					\end{table}
+
+					\newline
+					\begin{table}
+						\header{cccc}{ input & output }
+						\begin{tabular}{cccc}
+							\`\prod_{n=1}\`                    & `\prod_{n=1}` \\
+							\$\prod_{n=1}\$                    & $\prod_{n=1}$ \\
+							\`\prod^{oo}\`                     & `\prod^{oo}` \\
+							\$\prod^{oo}\$                     & $\prod^{oo}$ \\
+							\`\prod_{n=1}\`                    & `\prod_{n=1}` \\
+							\$\prod_{n=1}\$                    & $\prod_{n=1}$ \\
+							\`\prod_{n=1}^{oo}\`               & `\prod_{n=1}^{oo}` \\
+							\$\prod_{n=1}^{oo}\$               & $\prod_{n=1}^{oo}$ \\
+							\`\prod_{n=1}^{oo} 1/(n^2)\`       & `\prod_{n=1}^{oo} 1/(n^2)` \\
+							\$\prod_{n=1}^{oo} \frac{1}{n^2}\$ & $\prod_{n=1}^{oo} \frac{1}{n^2}$ \\
+							\`\prod_{n=1}^{N} a_n\`            & `\prod_{n=1}^{N} a_n` \\
+							\$\prod_{n=1}^{N} a_n\$            & $\prod_{n=1}^{N} a_n$
+						\end{tabular}
+					\end{table}
+
+					\newline
+					\begin{table}
+						\header{cccc}{ input & output }
+						\begin{tabular}{cccc}
+							\`\coprod_{n=1}\`                    & `\coprod_{n=1}` \\
+							\$\coprod_{n=1}\$                    & $\coprod_{n=1}$ \\
+							\`\coprod^{oo}\`                     & `\coprod^{oo}` \\
+							\$\coprod^{oo}\$                     & $\coprod^{oo}$ \\
+							\`\coprod_{n=1}\`                    & `\coprod_{n=1}` \\
+							\$\coprod_{n=1}\$                    & $\coprod_{n=1}$ \\
+							\`\coprod_{n=1}^{oo}\`               & `\coprod_{n=1}^{oo}` \\
+							\$\coprod_{n=1}^{oo}\$               & $\coprod_{n=1}^{oo}$ \\
+							\`\coprod_{n=1}^{oo} 1/(n^2)\`       & `\coprod_{n=1}^{oo} 1/(n^2)` \\
+							\$\coprod_{n=1}^{oo} \frac{1}{n^2}\$ & $\coprod_{n=1}^{oo} \frac{1}{n^2}$ \\
+							\`\coprod_{n=1}^{N} a_n\`            & `\coprod_{n=1}^{N} a_n` \\
+							\$\coprod_{n=1}^{N} a_n\$            & $\coprod_{n=1}^{N} a_n$
+						\end{tabular}
+					\end{table}
+			BEGIN PAGE:
+				TITLE:Limits
+				LEVEL:4
+				CONTENT:
+
+					\begin{table}
+						\header{cccc}{ input & output }
+						\begin{tabular}{cccc}
+							\`lim_{h -> 0}\` & `lim_{h -> 0}` \\
+							\$lim_{h -> 0}\$ & $lim_{h -> 0}$ \\
+							\`lim_{h -> 0} (f(x+h)-f(x))/h\` & `lim_{h -> 0} (f(x+h)-f(x))/h` \\
+							\$lim_{h -> 0} \frac{f(x+h)-f(x)}{h}\$ & $lim_{h -> 0} \frac{f(x+h)-f(x)}{h}$ 
+						\end{tabular}
+					\end{table}
+
+			BEGIN PAGE:
+				TITLE:Integrals
+				LEVEL:4
+				CONTENT:
+					\begin{table}
+						\header{cccc}{ input & output }
+						\begin{tabular}{cccc}
+							\`int_0^1f(x)dx\`      & `int_0^1f(x)dx` \\ 
+							\`\int_0^1f(x)dx\`     & `\int_0^1f(x)dx` \\ 
+							\$int_0^1f(x)dx\$      & $int_0^1f(x)dx$ \\ 
+							\$\int_0^1f(x)dx\$     & $\int_0^1f(x)dx$ \\ 
+							\$\int_{a}^{b}f(x)dx\$ & $\int_{a}^{b}f(x)dx$ \\ 
+							\`int_0^pi sin x dx\`  & `int_0^pi sin x dx` 
+						\end{tabular}
+					\end{table}
+
+					\begin{table}
+						\header{cccc}{ input & output }
+						\begin{tabular}{cccc}
+							\`dint_A f(x,y) dA\`    & `dint_A f(x,y) dA` \\
+							\`\dint_A f(x,y) dA\`   & `\dint_A f(x,y) dA` \\
+							\$dint_A f(x,y) dA\$    & $dint_A f(x,y) dA$ \\
+							\$\dint_A f(x,y) dA\$   & $\dint_A f(x,y) dA$ \\
+							\`tint_Q f(x,y,z) dV\`  & `tint_Q f(x,y,z) dV` \\
+							\`\tint_Q f(x,y,z) dV\` & `\tint_Q f(x,y,z) dV` \\
+							\$tint_Q f(x,y,z) dV\$  & $tint_Q f(x,y,z) dv$ \\
+							\$\tint_Q f(x,y,z) dV\$ & $\tint_Q f(x,y,z) dV$ \\
+							\`oint\`                & `oint` \\
+							\`oint\`                & `oint` \\
+							\$oint\$                & $oint$ \\
+							\$\oint\$               & $\oint$ 
+						\end{tabular}
+					\end{table}
+
+					\newline
+					\$int_0^pi sin x dx = -cos x |_{x=0}^{x=pi} = -cos(pi) - - cos(0) = -(-1) + 1 = 2\$ is translated as 
+					\newline
+					\newline
+					$int_0^pi sin x dx = -cos x |_{x=0}^{x=pi} = -cos(pi) - - cos(0) = -(-1) + 1 = 2$
+
+
+			BEGIN PAGE:
+				TITLE:Arrays
+				LEVEL:3
+				CONTENT:
+					Arrays are used to write Matrices, Determinants and Vectors.
+					\newline
+					\newline
+					The notation for arrays is different depending on whether you are using \` ... \` or \$ ... \$. 
+					\newline
+					\newline
+					We can also create \docLink{Equation Arrays} for displaying equations in a nice column format 
+			       		and we can use arrays to display \docLink{Piece-Wise Defined Functions}. 
+					\newline
+
+					\newline
+					\begin{bold}Arrays using \` ... \`\end{bold}
+					\newline
+					\newline
+
+					Arrays use a simple notation. These examples only work inside \` ... \`. Only the outermost 
+					pair of \docLink{Grouping Brackets} is displayed. For each row of the array, use [ ]. Individual 
+					rows and column elements are separated by commas.
+					\newline
+					\newline
+
+					The column vector `A=[[1],[0]]` can be created using the following code:
+					\newline
+					\begin{code}
+						BRUSH:astex-doc
+						CODE:
+							/* All in one line */ \cn
+							`A = [[1],[0]]` \cn
+							\cn
+							/* You can also separate out the code for readability */ \cn
+							`A = [ \cn
+								\ct\ct [1] , \cn
+								\ct\ct [0] \cn
+							\csp\csp\csp\csp\csp ]` \cn
+					\end{code}
+
+					The column vector `A=([1],[0])` can be created using the following code:
+					\newline
+					\begin{code}
+						BRUSH:astex-doc
+						CODE: `A = ([1],[0])` \cn
+					\end{code}
+
+					\newline
+					The 2x2 matrix `A=[[1,0],[0,1]]` can be created using the following code:
+					\newline
+					\newline
+					\begin{code}
+						BRUSH:astex-doc
+						CODE:
+							/* All in one line */ \cn
+							`A = [[1,0],[0,1]]` \cn
+							\cn
+							/* You can also separate out the code for readability */ \cn
+							`A = [ \cn
+								\ct\ct [1,0] , \cn
+								\ct\ct [0,1] \cn
+							\csp\csp\csp\csp\csp ]` \cn
+					\end{code}
+
+					\newline
+					The 2x2 determinant `A=|[1,0],[0,1]|` can be created using the following code:
+					\newline
+					\newline
+					\begin{code}
+						BRUSH:astex-doc
+						CODE:
+							/* All in one line */ \cn
+							`A = |[1,0],[0,1]|` \cn
+							\cn
+							/* You can also separate out the code for readability */ \cn
+							`A = | \cn
+								\ct\ct [1,0] , \cn
+								\ct\ct [0,1] \cn
+							\csp\csp\csp\csp\csp |` \cn
+					\end{code}
+					\newline
+
+					\newline
+					\begin{bold}Arrays using \$\begin{array} ... \end{array}\$\end{bold}
+					\newline
+					\newline
+					The array 
+
+					$\begin{array}{clcr}
+						a+b+c & uv    & x-y & 27   \\
+						a+b   & u+v   & z   & 134  \\
+						a     & 3u+vw & xyz & 2,978
+					\end{array}$
+
+					can be created by using the following code:
+					\newline
+					\begin{code}
+						BRUSH:astex-doc
+						CODE:
+							/* \cn
+							\csp* You can separate out the code for readability. \cn
+							\csp* You can also concatenate all this code into one line. \cn
+							\csp* The {clcr} justifies the 4 columns to "center left center right". \cn
+							\csp* The &s separate individual columns. \cn
+							\csp* The \\ separate rows. \cn
+							\csp*/ \cn
+							$\begin{array}{clcr} \cn
+								\ct a+b+c & uv    & x-y & 27   \\ \cn
+								\ct a+b   & u+v   & z   & 134  \\ \cn
+								\ct a     & 3u+vw & xyz & 2,978 \cn
+							\end{array}$
+					\end{code}
+
+					\newline
+					The matrix 
+
+					$\left[ \begin{array}{clcr}
+						a+b+c & uv    & x-y & 27   \\
+						a+b   & u+v   & z   & 134  \\
+						a     & 3u+vw & xyz & 2,978
+					\end{array} \right]$
+					can be created by using the following code:
+					\newline
+					\begin{code}
+						BRUSH:astex-doc
+						CODE:
+							/* \cn
+							\csp* You can separate out the code for readability. \cn
+							\csp* You can also concatenate all this code into one line. \cn
+							\csp* The {clcr} justifies the 4 columns to "center left center right". \cn
+							\csp* The &s separate individual columns. \cn
+							\csp* The \\ separate rows. \cn
+							\csp* We also create left and right opening and closing brackets around the matrix. \cn
+							\csp*/ \cn
+							$\left[ \begin{array}{clcr} \cn
+								\ct a+b+c & uv    & x-y & 27   \\ \cn
+								\ct a+b   & u+v   & z   & 134  \\ \cn
+								\ct a     & 3u+vw & xyz & 2,978 \cn
+							 \end{array} \right]$
+					\end{code}
+					\newline
+
+					The array 
+
+					$\left\lbrace \begin{array}{clcr}
+						a+b+c & uv    & x-y & 27   \\
+						a+b   & u+v   & z   & 134  \\
+						a     & 3u+vw & xyz & 2,978
+					\end{array} \right.$
+					can be created by using the following code:
+					\newline
+					\begin{code}
+						BRUSH:astex-doc
+						CODE:
+							/* \cn
+							\csp* You can separate out the code for readability. \cn
+							\csp* You can also concatenate all this code into one line. \cn
+							\csp* The {clcr} justifies the 4 columns to "center left center right". \cn
+							\csp* The &s separate individual columns. \cn
+							\csp* The \\ separate rows. \cn
+							\csp* We also create left brace and an invisible right brace around the array. \cn
+							\csp* Remember that $ ... $ treats { and } as invisible tokens, so we create a left  \cn
+							\csp* brace using the token \lbrace. \cn
+							\csp*/ \cn
+							$\left\lbrace \begin{array}{clcr} \cn
+								\ct a+b+c & uv    & x-y & 27   \\ \cn
+								\ct a+b   & u+v   & z   & 134  \\ \cn
+								\ct a     & 3u+vw & xyz & 2,978 \cn
+							 \end{array} \right.$
+					\end{code}
+					\newline
+
+
+			BEGIN PAGE:
+				TITLE:Piece-Wise Defined Functions
+				LEVEL:4
+				CONTENT:
+					We can use \docLink{Arrays} to display piece-wise defined functions.
+					\newline
+					\newline
+					The function defined `f(x) = {[x^2, text{, } x lt 0],[0, text{, } x ge 0]:}` 
+					can be created using the code below. Note the use of the text{, } command 
+					to insert a comma and a space.	
+					\newline
+					\begin{code}
+						BRUSH:astex-doc
+						CODE:
+							/* \cn
+							\csp* All in one line inside of ` ... `. \cn
+							\csp* Note the use of the invisible right brace :} around the array. \cn
+							\csp*/ \cn
+							`f(x) = {[x^2, text{, } x lt 0],[0, text{,} x ge 0]:}` \cn
+							\cn
+							/* You can also separate out the code for readability */ \cn
+							`f(x) = { \cn
+								\ct\ct\ct [x^2 , text{, } x lt 0] , \cn
+								\ct\ct\ct [0 , text{, } x ge 0] \cn
+							\ct\csp :}` \cn
+							\cn
+							/* \cn
+							\csp* You can also use \begin{array ... \end{array} inside of $ ... $. \cn
+							\csp* Note the use of the left brace (\lbrace) and invisible right brace (.). \cn
+							\csp* Also, don't forget to align the columns. Here we use {ll} to align \cn
+							\csp* both columns on the left. \cn
+							\csp*/ \cn
+							$f(x) = \left \lbrace \begin{array}{ll} \cn
+								\ct\ct\ct x^2 & text{, } x lt 0 \\ \cn
+								\ct\ct\ct\csp\csp 0 & text{, } x ge 0 \cn
+							\ct\ct \end{array} \right. $
+					\end{code}
+					\newline
+
+			BEGIN PAGE:
+				TITLE:Equation Arrays
+				LEVEL:4
+				CONTENT:
+					\newline
+					\docLink{Arrays} can be used to write equation arrays inside of \` ... \`. 
+					We can also use \begin{eqnarray} ... \end{eqnarray} inside of \$ ... \$.
+					\newline
+					\newline
+
+					The equation array `{:[y,= quad,x^2+2x+2],[,= quad,x^2+2x+1+1],[,= quad,(x+1)^2+1]:}` can be created 
+					using the following code:
+					\newline
+					\begin{code}
+						BRUSH:astex-doc
+						CODE:
+							/* \cn
+							\csp* All in one line inside of ` ... `. \cn
+							\csp* Note the use of the invisible left and right braces {: :} around the array. \cn
+							\csp*/ \cn
+							`{:[y,= quad,x^2+2x+2],[,= quad,x^2+2x+1+1],[,= quad,(x+1)^2+1]:}` \cn 
+							\cn
+							/* You can also separate out the code for readability */ \cn
+							`{: \cn
+								\ct [ y , = quad , x^2+2x+2 ] , \cn
+								\ct [ \csp , = quad , x^2+2x+1+1] , \cn
+								\ct [ \csp , = quad , (x+1)^2+1] \cn
+							:}` \cn 
+							\cn
+							/* \cn
+							\csp* You can also use \begin{eqnarray} ... \end{eqnarray} inside of $ ... $. \cn
+							\csp* The \\ separate lines/rows and the &=& create a vertical alignment around \cn
+							\csp* the equal signs. \cn
+							\csp*/ \cn
+							$\begin{eqnarray} \cn
+								\ct y &=& x^2 + 2x + 2   \\ \cn
+								\ct \csp &=& x^2 + 2x + 1 + 1 \\ \cn
+								\ct \csp &=& (x+1)^2 + 1 \cn
+							\end{eqnarray}$
+					\end{code}
+					\newline
+
+
+			BEGIN PAGE:
+				TITLE:Long Division
+				LEVEL:4
+				CONTENT:
+					Displaying long division is quite simple. We can display `x+1 longdiv{x^2+1}` 
+					by using any one of the following lines of code:
+					\begin{code}
+						BRUSH:astex-doc
+						CODE:
+							`x+1 longdiv{x^2+1}` \cn\cn
+							`x+1 \longdiv{x^2+1}` \cn\cn
+							$x+1 longdiv{x^2+1}$ \cn\cn
+							$x+1 \longdiv{x^2+1}$
+					\end{code}
+					\newline
+					and we can display `x+1 longdiv{x^2 color{red}{+0x} +1}` by using 
+					\begin{code}
+						BRUSH:astex-doc
+						CODE:
+							`x+1 longdiv{x^2 color{red}{+0x} +1}` \cn\cn
+							`x+1 \longdiv{x^2 \color{red}{+0x} +1}` \cn\cn
+							$x+1 longdiv{x^2 color{red}{+0x} +1}$ \cn\cn
+							$x+1 \longdiv{x^2 \color{red}{+0x} +1}$ \cn\cn
+					\end{code}
+					\newline
+					\newline
+					We can also display columnar long division using \docLink{Arrays}. 
+					\newline
+					\newline
+					This works great in Astex's Canvas Renderer and pretty well in Firefox with the TEX/STIX fonts installed. 
+					Note how we use the tt{} or mathtt{} command to make font true type so it looks good in Firefox. 
+					This will allow easier alignment for long division. The MathPlayer Plugin doesn't have True Type fonts, 
+					so the display isn't always perfect. We also use the hide{} command to print invisible characters. 
+					\newline
+					\newline
+					We can create 
+
+					`tt{
+						{:
+							[hide{12345678}x],
+							[x+1longdiv{x^2color{red}{+0x}+1}],
+							[hide{1234}x^2+hide{1}x]
+						:}
+					}`
+
+					by using the following code:
+
+					\begin{code}
+						BRUSH:astex-doc
+						CODE:
+							/* Inside of ` ... ` */ \cn
+							`tt{ \cn
+								\ct{: \cn
+									\ct\ct [hide{12345678}x], \cn
+									\ct\ct [x+1longdiv{x^2color{red}{+0x}+1}], \cn
+									\ct\ct [hide{1234}x^2+hide{1}x] \cn
+								\ct :} \cn
+							}` \cn
+							\cn
+							\cn
+							/* Inside of $ ... $ */ \cn
+							$\mathtt{ \cn
+								\ct \begin{array}{l} \cn
+									\ct\ct hide{12345678}x \\ \cn
+									\ct\ct x+1longdiv{x^2color{red}{+0x}+1} \\ \cn
+									\ct\ct hide{1234}x^2+hide{1}x \cn
+								\ct \end{array} \cn
+							}$
+					\end{code}
+					\newline
+					\newline
+					We can create 
+					`tt{
+						{:
+							[hide{123456}10],
+							[131longdiv{1413}],
+							[hide{1234}ul{ color{red}{131} }],
+							[hide{12345}103]
+						:}
+					}`
+					by using the following code:
+					\newline
+
+					\begin{code}
+						BRUSH:astex-doc
+						CODE:
+							/* Inside of ` ... ` */ \cn
+							`tt{ \cn
+								\ct {: \cn
+									\ct\ct [hide{123456}10], \cn
+									\ct\ct [131longdiv{1413}], \cn
+									\ct\ct [hide{1234}ul{ color{red}{131} }], \cn
+									\ct\ct [hide{12345}103] \cn
+								\ct:} \cn
+							}` \cn
+							\cn
+							\cn
+							/* Inside of $ ... $ */ \cn
+							$\mathtt{ \cn
+								\ct \begin{array}{l} \cn
+									\ct\ct hide{123456}10 \\ \cn
+									\ct\ct 131longdiv{1413} \\ \cn
+									\ct\ct hide{1234}ul{ color{red}{131} } \\ \cn
+									\ct\ct hide{12345}103 \cn
+								\ct \end{array}	\cn
+							}$ \cn
+					\end{code}
+					\newline
+					Note that long division with all digits (no polynomials) looks ok in Internet Exporer using the MathPlayer plugin.
+			BEGIN PAGE:
+				TITLE:Graphs
+				LEVEL:1
+				CONTENT:
+					ASTEX allows you to draw mathematical graphs in 2 and 3 dimensions. 
+					\newline
+					\newline
+					The semi-colon ; after each command is IMPORTANT!
+					\newline
+					\newline
+					The easiest way to learn the syntax is to try for yourself. 
+					Visit the \docLink{Sandbox} and practice with some of the pre-loaded graphs. Note that 
+					you can enter multi-line comments (as seen in the codes below). This can come in handy when trying 
+					to learn the syntax so you know why you entered a particular command.
+					\newline
+					\newline
+					You create graphs by inserting the following into your html document:
+					\begin{code}
+						BRUSH:astex-doc
+						CODE:
+							\begin{graph} \cn
+							\cn
+							\ct /* commands go here */ \cn
+							\cn
+							\end{graph}
+					\end{code}
+					\newline
+					\newline
+					The initialization commands for graphs are:
+					\begin{code}
+						BRUSH:astex-doc
+						CODE:
+							dim = 2|3 ; /* default is 2 */ \cn
+							width = # ; \cn
+							height = # ; \cn
+							bgcolor = red|blue|yellow|... ;
+					\end{code}
+					\newline
+					\newline
+					The min/max/scale commands for graph variables are:
+					\begin{code}
+						BRUSH:astex-doc
+						CODE:
+							xmin = # ; \cn
+							xmax = # ; \cn
+							xscale = # ; OR xscl = # ; \cn
+							ymin = # ; \cn
+							ymax = # ; \cn
+							yscale = # ; OR yscl = # ; \cn
+							zmin = # ; /* 3D only */ \cn
+							zmax = # ; /* 3D only */ \cn
+							zscale = # ; OR zscl = # ; /* 3D only */ \cn
+							rmin = # ; \cn
+							rmax = # ; \cn
+							thetamin = # ; \cn
+							thetamax = # ; \cn
+							rhomin = # ; /* 3D only */ \cn
+							rhomax = # ; /* 3D only */ \cn
+							phimin = # ; /* 3D only */ \cn
+							phimax = # ; /* 3D only */ \cn
+					\end{code}
+					\newline
+					\newline
+					Miscellaneous commands to be used only once per graph are
+					\begin{code}
+						BRUSH:astex-doc
+						CODE:
+							grid = yes|no|rect|polar ; /* display background grid */ \cn
+							axeslabels = x,y ; \cn
+							axes = yes|true|no|false ; \cn
+							tickmarks = yes|true|no|false ; \cn
+							ticklabels = yes|true|no|false ; \cn
+							LHS = yes|true|no|false ; /* Left-Hand-System for 3D graphs */ \cn
+							controls = yes|true|no|false ; /* 3D rotation controls */ \cn
+					\end{code}
+					\newline
+					\newline
+					Miscellaneous repeatable commands are
+					\begin{code}
+						BRUSH:astex-doc
+						CODE:
+							stroke = #|dotted ; /* stroke width */ \cn
+							color = red|blue|yellow|... ; \cn
+							opacity = # ; /* should be between 0 and 1 */ \cn
+					\end{code}
+					\newline
+					\newline
+
+					Functions for 2D graphs (which are repeatable in a single graph) are
+					\begin{code}
+						BRUSH:astex-doc
+						CODE:
+							/* 2D graphs */ \cn
+							\cn
+							/* \cn
+							\csp* draw a dot on graph \cn
+							\csp* point is an ordered pair [#,#] dot \cn
+							\csp* type is one of + - | o \cn
+							\csp* fill is one of true|yes|false|no \cn
+							\csp*/ \cn
+							dot ( point , type , fill ) ; \cn
+							\cn
+							/* \cn
+							\csp* plot rectangular functions \cn
+							\csp* max/min values and endpoints are optional \cn
+							\csp*/ \cn
+							plot ( `y=f(x)` , xmin , xmax , endpoints ) ; \cn
+							plot ( `x=f(y)` , ymin , ymax , endpoints ) ; \cn
+							/* \cn
+							\csp* plot polar functions \cn
+							\csp* max/min values and endpoints are optional \cn
+							\csp*/ \cn
+							plot ( `r=f(theta)` , thetamin , thetamax , endpoints ) ; \cn
+							plot ( `theta=f(r)` , rmin , rmax , endpoints ) ; \cn
+							/* \cn
+							\csp* plot parametric functions \cn
+							\csp* max/min values are mandatory, endpoints are optional \cn
+							\csp*/ \cn
+							plot ( `x=x(t)` , `y=y(t)` , tmin , tmax , endpoints ) ; \cn
+							\cn
+							/* \cn
+							\csp* fill between 2 plots \cn
+							\csp* You can use any of the above plot() types inside fillplot() \cn
+							\csp* fillplot() expects exactly 2 plot() arguments, separated by a space \cn
+							\csp* The individual plot commands do NOT end in a semi-colon ; \cn
+							\csp*/ \cn
+							fillplot ( plot() plot() ) ; \cn
+							\cn
+							/* \cn
+							\csp* draw math text on graph \cn
+							\csp* text is asciimath markup inside ` ` or $ $ \cn
+							\csp* point is an ordered pair [#,#] representing bottom-left corner of text \cn
+							\csp* xFactor/yFactor is factor to stretch text on canvas \cn
+							\csp*/ \cn
+							mtext ( text , point , xFactor , yFactor ) ; \cn
+							\cn
+							/* \cn
+							\csp* write text on graph \cn
+							\csp* text is a string (no quotes necessary) \cn
+							\csp* point is an ordered pair [#,#] representing the top-left corner of text \cn
+							\csp*/ \cn
+							text ( text , point ) ; \cn
+							\cn
+					\end{code}
+					\newline
+					\newline
+
+					Functions for 3D graphs (which are repeatable in a single graph) are
+					\begin{code}
+						BRUSH:astex-doc
+						CODE:
+							/* 3D graphs */ \cn
+							\cn
+							/* set the front/back color for 3D surfaces */ \cn
+							surfacecolor ( color1 , color2 ) ; \cn
+							\cn
+							/* \cn
+							\csp* set partitions for surfaces \cn
+							\csp* Since we can refer to 3D coordinates as \cn
+							\csp* (x,y,z) , (r, theta,z) , or (rho, phi, theta) \cn
+							\csp* one call to partition() sets all of these \cn
+							\csp* Remember that the larger the partitions, the longer \cn
+							\csp* it takes to render the surface, but it also makes the surface smoother \cn
+							\csp*/ \cn
+							partition ( # , # , # ) ; \cn
+							\cn
+							/* \cn
+							\csp* plot 3D rectangular surfaces \cn
+							\csp*/ \cn
+							plot3D ( rect , `z=f(x,y)` ) ; \cn
+							plot3D ( rect , `y=f(x,z)` ) ; \cn
+							plot3D ( rect , `x=f(y,z)` ) ; \cn
+							\cn
+							/* \cn
+							\csp* plot 3D cylindrical surfaces \cn
+							\csp*/ \cn
+							plot3D ( cyl , `z=f(r,theta)` ) ; \cn
+							plot3D ( cyl , `r=f(theta,z)` ) ; \cn
+							plot3D ( cyl , `theta=f(r,z)` ) ; \cn
+							\cn
+							/* \cn
+							\csp* plot 3D spherical surfaces \cn
+							\csp*/ \cn
+							plot3D ( sph , `rho=f(theta,phi)` ) ; \cn
+							plot3D ( sph , `theta=f(rho,phi)` ) ; \cn
+							plot3D ( sph , `phi=f(rho,theta)` ) ; \cn
+							\cn
+							/* \cn
+							\csp* plot 3D parametric surfaces \cn
+							\csp*/ \cn
+							plot3D ( param , `z=z(x,y)` , `x=x(s,t)` , `y=y(s,t)` , smin , smax , tmin , tmax ) ; \cn
+							\cn
+							/* \cn
+							\csp* plot 3D vector valued functions \cn
+							\csp*/ \cn
+							plot3D ( vvf , `x=x(t)` , `y=y(t)` , `z=z(t)` , tmin , tmax ) ; \cn
+							\cn
+							\cn
+					\end{code}
+					\newline
+					\newline
+
+			BEGIN PAGE:
+				TITLE:Simple LaTeX Formatting 
+				LEVEL:1
+				CONTENT:
+					Note that the leading backslash \ is required in most commands below.
+					\newline
+					\newline
+					Theorems, propositions, exercies, soutions, etc...
+					\newline
+					\begin{code}
+						BRUSH:astex-doc
+						CODE:
+							\begin{theorem} ... \end{theorem} \cn
+							\begin{lemma} ... \end{lemma} \cn
+							\begin{proposition} ... \end{proposition} \cn
+							\begin{corollary} ... \end{corollary} \cn
+							\cn
+							\begin{definition} ... \end{definition} \cn
+							\begin{example} ... \end{example} \cn
+							\begin{remark} ... \end{remark} \cn
+							\begin{problem} ... \end{problem} \cn
+							\begin{exercise} ... \end{exercise} \cn
+							\begin{conjecture} ... \end{conjecture} \cn
+							\begin{solution} ... \end{solution} \cn
+							\cn
+							\begin{proof} ... \end{proof}
+							\cn
+					\end{code}
+					\newline
+
+					Emphasis, bold, etc...
+					\newline
+					\begin{code}
+						BRUSH:astex-doc
+						CODE:
+							\emph{ ... } \cn
+							\textbf{ ... } \cn
+							\begin{emph} ... \end{emph} \cn
+							\begin{bold} ... \end{bold} \cn
+							\begin{italic} ... \end{italic} \cn
+							\begin{italics} ... \end{italics} \cn
+							\begin{underline} ... \end{underline} \cn
+							\begin{pre} ... \end{pre} \cn
+							\begin{monospace} ... \end{monospace} \cn
+					\end{code}
+					\newline
+
+
+					Structure ...
+					\newline
+					\begin{code}
+						BRUSH:astex-doc
+						CODE:
+							\cite{ ... } \cn
+							\chapter{ ... } \cn
+							\section{ ... } \cn
+							\subsection{ ... } \cn
+							\begin{center} ... \end{center} \cn
+					\end{code}
+					\newline
+
+					Whitespace
+					\newline
+					\begin{code}
+						BRUSH:astex-doc
+						CODE:
+							\tab \cn
+							\newline \cn
+							\newpage \cn
+							\par \cn
+							\bigskip \cn
+							\medskip \cn
+							\smallskip \cn
+					\end{code}
+					\newline
+
+					Lists
+					\newline
+					\begin{code}
+						BRUSH:astex-doc
+						CODE:
+							/* unordered lists */
+							\cn
+							\cn
+							\begin{itemize} \cn
+							\ct \item item-1-goes-here \cn
+							\ct \item item-2-goes-here \cn
+							\ct \item item-3-goes-here \cn
+							\end{itemize} \cn
+							\cn
+							\cn
+							/* \cn
+							 * You can add an optional \cn
+							 * css style such as \cn
+							 * list-style-type:square in the [] \cn
+							 * to change the bullet type used \cn
+							 * in the list \cn
+							 */ \cn
+							\begin{itemize[optional-css-style]} \cn
+							\ct \item item-1-goes-here \cn
+							\ct \item item-2-goes-here \cn
+							\ct \item item-3-goes-here \cn
+							\end{itemize} \cn
+							\cn
+							\cn
+							/* ordered lists */
+							\cn
+							\cn
+							\begin{enumerate} \cn
+							\ct \item item-1-goes-here \cn
+							\ct \item item-2-goes-here \cn
+							\ct \item item-3-goes-here \cn
+							\end{enumerate} \cn
+							\cn
+							\cn
+							/* \cn
+							 * You can add an optional \cn
+							 * css style such as \cn
+							 * list-style-type:lower-roman in the [] \cn
+							 * to change the numeric type used \cn
+							 * in the list \cn
+							 */ \cn
+							\begin{enumerate[optional-css-style]} \cn
+							\ct \item item-1-goes-here \cn
+							\ct \item item-2-goes-here \cn
+							\ct \item item-3-goes-here \cn
+							\end{enumerate} \cn
+					\end{code}
+					\newline
+
+
+					Tables - format inspired by LaTeX. See the \docLink{Sandbox} for examples.
+					\newline
+					\begin{code}
+						BRUSH:astex-doc
+						CODE:
+							/* \cn
+							 * The format is inspired by LaTeX. \cn
+							 * Everything is optional inside of \begin{table} ... \end{table} \cn
+							 * except for \begin{tabular} ... \end{tabular} command. \cn
+							 */ \cn
+							\cn
+							\cn
+							\begin{table} \cn
+							\cn
+								\ct \caption{Table Caption} /* optional */\cn
+								\ct \column-separator{&} /* optional (default is &) */\cn
+								\ct \row-separator{\\} /* optional (default is \\) */\cn
+								\cn
+								\ct /* \cn
+								\ct  * header \cn
+								\ct  * Alignment is string of l,c,r (left,center,right)\cn
+								\ct  * For a 3 column table, {lcr} aligns first column left, \cn
+								\ct  * second column center and third column to the right. \cn
+								\ct  * The second set of { } gives column content. \cn
+								\ct  */ \cn
+								\ct \header{alignment}{Col1 & Col2 & Col3} /* optional */\cn
+								\cn
+								\ct /* \cn
+								\ct  * tabular format \cn
+								\ct  * Alignment is string of l,c,r (left,center,right)\cn
+								\ct  * For a 3 column table, {lcr} aligns first column left, \cn
+								\ct  * second column center and third column to the right. \cn
+								\ct  * Row content is separated by \\ unless changed using \row-separator{}. \cn
+								\ct  * Column content is separated by & unless changed using \column-separator{}. \cn
+								\ct  */ \cn
+								\ct \begin{tabular}{alignment} \cn
+									\ct\ct a11 & a12 & a13 \\ \cn
+									\ct\ct a21 & a22 & a23 \\ \cn
+									\ct\ct a31 & a32 & a33 \cn
+								\ct \end{tabular} \cn
+								\cn
+								\cn
+							 	\ct /* \cn
+							 	\ct  * Also note that you can add [span=#,#] to any header, \cn
+							 	\ct  * footer, or tabular element to make an entry span multiple columns. \cn
+								\ct  * Here we show an example with \begin{tabular} ... \end{tabular}. \cn
+								\ct  * The first # is the row-span, the second # is the column-span; \cn
+								\ct  * e.g., [span=1,2] spans 1 row and 2 columns. \cn
+								\ct  * e.g., [span=2,2] spans 2 rows and 2 columns. \cn
+								\ct  */\cn
+								\ct \begin{tabular}{alignment} \cn
+									\ct\ct a11 \ct\ct\ct & a12 & a13 \\ \cn
+									\ct\ct a21,22[span=2,2] & a23 \ct \\ /* Note the number of &s */ \cn
+									\ct\ct \ct\ct\ct\ct\ct\ct a33 \ct /* Note we only have column 3 */ \cn
+								\ct \end{tabular} \cn
+								\cn
+								\cn
+								\ct /* \cn
+								\ct  * footer \cn
+								\ct  * The footer shares the same markup as headers. \cn
+								\ct  */ \cn
+								\ct \footer{alignment}{Foot1 & Foot2 & Foot3} /* optional */\cn
+							\cn
+							\end{table} \cn
+
+
+					\end{code}
+					\newline
+
+		\end{doc}	
+
+	</body>
+</html>

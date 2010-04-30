@@ -81,7 +81,7 @@ Astex.Settings.processSettings = function ( node ) {
 	str += "ASTEX v" + Astex.version ;
 	str += "<br />" ;
 	str += "For documentation and sources visit us online at " ;
-	str += "<a href=\"http://astex.sourceforge.net\" target=\"_blank\">astex.sourceforge.net</a>." ;
+	str += "<a href=\"http://astex-math-on-web.googlecode.com\" target=\"_blank\">astex-math-on-web.googlecode.com</a>." ;
 	str += "</div>" ;
 
 	str += "<br />" ;

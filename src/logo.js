@@ -74,7 +74,7 @@ Astex.Logo.processLogos = function ( node ) {
 		str += "mtext(`int_{0}^{1}f(x)dx`,[-3,-2],0.5,1.5);" ;
 		str += "color=blue;" ;
 		str += "mtext(`e^{x+y}`,[7,4],0.5,1.75);" ;
-		str += "text(<a title=\"astex.sourceforge.net\" target=\"_blank\" href=\"http://astex.sourceforge.net\">powered by ASTEX</a>,[-5,-5.5]);" ;
+		str += "text(<a title=\"astex-math-on-web\" target=\"_blank\" href=\"http://astex-math-on-web.googlecode.com\">powered by ASTEX</a>,[-5,-5.5]);" ;
 		str += "\\end{graph}" ;
 
 		divs[i].style.diplay = "inline" ;

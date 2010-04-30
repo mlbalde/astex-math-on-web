@@ -4,7 +4,7 @@
  * http://astex-math-on-web.googlecode.com
  * astex.math.on.web@gmail.com
  *
- * version 0.1 (beta) (29 April 2010)
+ * version 0.1 (beta) (30 April 2010)
  * 
  * Copyright (C) 2009-2010 Michael A. Ziegler
  *

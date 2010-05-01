@@ -132,9 +132,14 @@ Astex.AMath.MathMLRenderer.setRenderer = function ( r ) {
 
 // avoid adding MathPlayer info explicitly to each webpage
 if ( Astex.Util.isIE ) {
-
-	document.write ( "<object id=\"mathplayer\"\ classid=\"clsid:32F66A20-7614-11D4-BD11-00104BD3F987\"></object>" ) ;
-	document.write ( "<?import namespace=\"m\" implementation=\"#mathplayer\"?>" ) ;
+	try {
+		var ActiveX = new ActiveXObject ( "MathPlayer.Factory.1" ) ;
+		document.write ( "<object id=\"mathplayer\"\ classid=\"clsid:32F66A20-7614-11D4-BD11-00104BD3F987\"></object>" ) ;
+		document.write ( "<?import namespace=\"m\" implementation=\"#mathplayer\"?>" ) ;
+	}
+	catch ( e ) {
+		/* empty body */
+	}
 }
 
 //

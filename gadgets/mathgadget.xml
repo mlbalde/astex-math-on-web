@@ -30,10 +30,10 @@
 					// use the content preference to populate the gadget
 					else {
 
-						// get the user's content and append it 
+						// get the user's content and place it 
 						// it in the appropriate html div
 						var div = document.getElementById ( "ContentDiv" ) ;
-						div.innerHTML += prefs.getString ( "content" ) ;
+						div.innerHTML = prefs.getString ( "content" ) ;
 						Astex.init( ) ;
 					}
 				}
@@ -42,9 +42,9 @@
 
 					// get text from url
 					var text = obj.text ;
-					// append to the appropriate html div
+					// add to the appropriate html div
 					var div = document.getElementById ( "ContentDiv" ) ;
-					div.innerHTML += text ;
+					div.innerHTML = text ;
 					Astex.init( ) ;
 				}
 

@@ -2,7 +2,7 @@
 <Module>
 	<ModulePrefs title="Astex Math Gadget" title_url="http://astex-math-on-web.googlecode.com/svn/trunk/gadgets/mathgadget.xml" height="100" author="Michael Ziegler" author_email="astex.math.on.web@gmail.com" />
 	<UserPref name="content" display_name="Content" required="true" datatype="string" />
-	<Content type="html" />
+	<Content type="html">
 		<![CDATA[
 
 			<script type="text/javascript" src="../doc/astex-complete.js"></script>

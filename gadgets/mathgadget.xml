@@ -21,7 +21,6 @@
 					var url = prefs.getString ( "url" ) ;	
 					if ( url.match(/^\s*http:\/\/[a-zA-Z0-9_]/i) ) {
 
-						alert ( url ) ;
 						// fetch the remote content
 						var params = { } ;
 						params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT ;

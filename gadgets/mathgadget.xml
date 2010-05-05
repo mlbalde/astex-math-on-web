@@ -39,7 +39,7 @@
 					}
 				}
 
-				function urlCallBack = function ( obj ) {
+				function urlCallBack ( obj ) {
 
 					// get text from url
 					var text = obj.text ;

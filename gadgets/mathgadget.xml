@@ -19,7 +19,7 @@
 				
 					// get the url pref
 					var url = prefs.getString ( "url" ) ;	
-					if ( url.match(/^\s*http:\/\/\w+/i) ) {
+					if ( url.match(/^\s*http:\/\/[a-zA-Z0-9_]/i) ) {
 
 						// fetch the remote content
 						var params = { } ;

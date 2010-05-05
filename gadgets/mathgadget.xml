@@ -8,8 +8,9 @@
 			<script type="text/javascript" src="../doc/astex-complete.js"></script>
 			<script type="text/javascript">
 
+				Astex.initOnLoad = false ;
+
 				function gadgetInit ( ) {
-					Astex.initOnLoad = false ;
 					// get the user's content and put
 					// it in the appropriate html div
 					var prefs = new gadgets.Prefs() ;

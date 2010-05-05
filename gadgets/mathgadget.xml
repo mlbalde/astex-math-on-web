@@ -5,7 +5,7 @@
 	<Content type="html">
 		<![CDATA[
 
-			<script type="text/javascript" src="../doc/astex-complete.js"></script>
+			<script type="text/javascript" src="http://astex-math-on-web.googlecode.com/svn/trunk/doc/astex-complete.js"></script>
 			<script type="text/javascript">
 
 				Astex.initOnLoad = false ;

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+	<ModulePrefs 
+		title="Astex Math Gadget" 
+		title_url="http://astex-math-on-web.googlecode.com" 
+		height="100" 
+		author="Michael Ziegler" 
+		author_email="astex.math.on.web@gmail.com" 
+	 />
+	<UserPref name="content" display_name="Content" required="true" datatype="string" />
+	<Content type="html" />
+		<![CDATA[
+
+			<script type="text/javascript" src="../src/astex-complete.js"></script>
+			<script type="text/javascript">
+				Astex.initOnLoad = false ;
+				// get the user's content and put
+				// it in the appropriate html div
+				var prefs = new gadgets.Prefs() ;
+				var div = document.getElementById ( "ContentDiv" ) ;
+				div.innerHTML = prefs.getString ( "content" ) ;
+				Astex.init( ) ;
+			</script>
+
+			<div id="ContentDiv"></div>
+		]]>
+	</Content>
+</Module>

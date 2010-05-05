@@ -1,28 +1,57 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
 	<ModulePrefs title="Astex Math Gadget" title_url="http://astex-math-on-web.googlecode.com/svn/trunk/gadgets/mathgadget.xml" height="100" author="Michael Ziegler" author_email="astex.math.on.web@gmail.com" />
-	<UserPref name="content" display_name="Content" required="true" datatype="string" />
+	<UserPref name="url" display_name="Content" datatype="string" default_value="http://" />
+	<UserPref name="content" display_name="Content" datatype="string" />
 	<Content type="html">
 		<![CDATA[
 
 			<script type="text/javascript" src="http://astex-math-on-web.googlecode.com/svn/trunk/doc/astex-complete.js"></script>
 			<script type="text/javascript">
 
+				// don't load Astex initially
 				Astex.initOnLoad = false ;
 
 				function gadgetInit ( ) {
-					// get the user's content and put
-					// it in the appropriate html div
+
+					// get user preferences
 					var prefs = new gadgets.Prefs() ;
+				
+					// get the url pref
+					var url = prefs.getString ( "url" ) ;	
+					if ( url.match(/^\s*http:\/\/\w+/i) ) {
+
+						// fetch the remote content
+						var params = { } ;
+						params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT ;
+						gadgets.io.makeRequest ( url , urlCallBack , params ) ;
+					}
+					// if the user hasn't added anything beyond http:// in the url
+					// use the content preference to populate the gadget
+					else {
+
+						// get the user's content and append it 
+						// it in the appropriate html div
+						var div = document.getElementById ( "ContentDiv" ) ;
+						div.innerHTML += prefs.getString ( "content" ) ;
+						Astex.init( ) ;
+					}
+				}
+
+				function urlCallBack = function ( obj ) {
+
+					// get text from url
+					var text = obj.text ;
+					// append to the appropriate html div
 					var div = document.getElementById ( "ContentDiv" ) ;
-					div.innerHTML = prefs.getString ( "content" ) ;
+					div.innerHTML += text ;
 					Astex.init( ) ;
 				}
 
 				gadgets.util.registerOnLoadHandler ( gadgetInit ) ;
 			</script>
 
-			<div id="ContentDiv"></div>
+			<div id="ContentDiv">Default Content</div>
 		]]>
 	</Content>
 </Module>

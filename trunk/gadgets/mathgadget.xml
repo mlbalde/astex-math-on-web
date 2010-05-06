@@ -34,7 +34,12 @@
 						// it in the appropriate html div
 						var div = document.getElementById ( "ContentDiv" ) ;
 						div.innerHTML = prefs.getString ( "content" ) ;
-						Astex.init( ) ;
+						if ( Astex.initialized ) {
+							Astex.process ( div ) ;
+						}
+						else {
+							Astex.init( ) ;
+						}
 					}
 				}
 
@@ -45,7 +50,12 @@
 					// add to the appropriate html div
 					var div = document.getElementById ( "ContentDiv" ) ;
 					div.innerHTML = text ;
-					Astex.init( ) ;
+					if ( Astex.initialized ) {
+						Astex.process ( div ) ;
+					}
+					else {
+						Astex.init( ) ;
+					}
 				}
 
 				gadgets.util.registerOnLoadHandler ( gadgetInit ) ;

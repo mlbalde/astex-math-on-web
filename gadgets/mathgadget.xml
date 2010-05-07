@@ -61,7 +61,7 @@
 				gadgets.util.registerOnLoadHandler ( gadgetInit ) ;
 			</script>
 
-			<div id="ContentDiv">Default Content</div>
+			<div id="ContentDiv">\begin{center} \logo{} \end{center}</div>
 		]]>
 	</Content>
 </Module>

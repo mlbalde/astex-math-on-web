@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-	<ModulePrefs title="Astex Math Gadget" title_url="http://astex-math-on-web.googlecode.com/svn/trunk/gadgets/mathgadget.xml" height="100" author="Michael Ziegler" author_email="astex.math.on.web@gmail.com" />
+	<ModulePrefs title="Astex Math Gadget" title_url="http://astex-math-on-web.googlecode.com" height="100" description="This gadget is intended to allow anyone to be able to put mathematical notation, graphs in 2D, surfaces in 3D, computer syntax highlighting, and much more in any web page in which they can include a google gadget. See http://astex-math-on-web.googlecode.com and click on the link 'Math Gadget for Google Sites' for a detailed explanation on how to embed and use the gadget." author="Michael A. Ziegler" author_email="astex.math.on.web+mathgadget@gmail.com" screenshot="http://astex-math-on-web.googlecode.com/svn/trunk/img/astex-mathgadget-screenshot.png" thumbnail="http://astex-math-on-web.googlecode.com/svn/trunk/img/astex-mathgadget-thumbnail.png" />
 	<UserPref name="url" display_name="URL" datatype="string" default_value="http://" />
 	<UserPref name="content" display_name="Content" datatype="string" />
 	<Content type="html">
